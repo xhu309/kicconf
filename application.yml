@@ -1,0 +1,29 @@
+server:
+  port: 9016
+spring:
+  application:
+    name: ktc-base       # 微服务名称
+  datasource: # 数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.226.130:3306/ktc_base?characterEncoding=UTF8
+    username: root
+    password: 123456
+  #JPA 配置信息:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true      # 格式化sql
+        show_sql: true        # 显示sql
+#    database: mysql           # 要操作的目标数据库类型,默认情况下系统可以自动检测
+    generate-ddl: true        # 可以让SpringDataJPA来生成DDL
+    hibernate:
+      ddl-auto: update        # ddl的策略为update
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10101/eureka
+#    register-with-eureka: true # 启用注册到 Eureka
+#    fetch-registry: true       # 启用从 Eureka 获取服务列表
+#    instance:
+#        prefer-ip-address: true # 使用 IP 地址注册，而不是主机名
+#        hostname: 127.0.0.1  # 当前服务的主机 IP 地址
